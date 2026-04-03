@@ -1,0 +1,169 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   @default("player") // "admin" or "player"
+  avatar    String?
+  department String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  player Player?
+
+  @@map("users")
+}
+
+model Player {
+  id            String   @id @default(cuid())
+  userId        String?  @unique
+  user          User?    @relation(fields: [userId], references: [id])
+  name          String
+  email         String   @unique
+  avatar        String?
+  department    String?
+  rating        Float    @default(1000)
+  ratingHistory RatingHistory[]
+  wins          Int      @default(0)
+  losses        Int      @default(0)
+  draws         Int      @default(0)
+  streak        Int      @default(0) // Positive for win streak, negative for loss streak
+  bestStreak    Int      @default(0)
+  totalPoints   Int      @default(0) // Total points scored across all matches
+  totalLostPoints Int    @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  matchesAsPlayer1 Match[] @relation("MatchPlayer1")
+  matchesAsPlayer2 Match[] @relation("MatchPlayer2")
+  tournaments      TournamentPlayer[]
+  achievements     Achievement[]
+
+  @@map("players")
+}
+
+model RatingHistory {
+  id        String   @id @default(cuid())
+  playerId  String
+  player    Player   @relation(fields: [playerId], references: [id], onDelete: Cascade)
+  rating    Float
+  matchId   String?
+  change    Float
+  createdAt DateTime @default(now())
+
+  @@map("rating_history")
+}
+
+model Match {
+  id              String   @id @default(cuid())
+  player1Id       String
+  player1         Player   @relation("MatchPlayer1", fields: [player1Id], references: [id])
+  player2Id       String
+  player2         Player   @relation("MatchPlayer2", fields: [player2Id], references: [id])
+  player1Score    Int
+  player2Score    Int
+  player1RatingBefore Float?
+  player2RatingBefore Float?
+  player1RatingAfter  Float?
+  player2RatingAfter  Float?
+  winnerId        String?
+  bestOf          Int      @default(1) // 1, 3, 5, 7
+  isTournamentMatch Boolean @default(false)
+  tournamentId    String?
+  notes           String?
+  playedAt        DateTime @default(now())
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("matches")
+}
+
+model Tournament {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  type        String   // "elimination", "round-robin", "swiss"
+  status      String   @default("pending") // "pending", "active", "completed"
+  format      String   @default("best-of-3")
+  startDate   DateTime?
+  endDate     DateTime?
+  maxPlayers  Int?
+  prize       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  players TournamentPlayer[]
+  matches TournamentMatch[]
+
+  @@map("tournaments")
+}
+
+model TournamentPlayer {
+  id            String   @id @default(cuid())
+  tournamentId  String
+  tournament    Tournament @relation(fields: [tournamentId], references: [id])
+  playerId      String
+  player        Player     @relation(fields: [playerId], references: [id])
+  seed          Int?
+  finalRank     Int?
+  wins          Int        @default(0)
+  losses        Int        @default(0)
+  points        Int        @default(0)
+  gamesWon      Int        @default(0)
+  gamesLost     Int        @default(0)
+
+  @@unique([tournamentId, playerId])
+  @@map("tournament_players")
+}
+
+model TournamentMatch {
+  id             String     @id @default(cuid())
+  tournamentId   String
+  tournament     Tournament @relation(fields: [tournamentId], references: [id])
+  round          Int
+  player1Id      String
+  player2Id      String
+  player1Score   Int?
+  player2Score   Int?
+  winnerId       String?
+  scheduledAt    DateTime?
+  completedAt    DateTime?
+  createdAt      DateTime   @default(now())
+
+  @@map("tournament_matches")
+}
+
+model Achievement {
+  id          String   @id @default(cuid())
+  playerId    String
+  player      Player   @relation(fields: [playerId], references: [id])
+  type        String   // "first_win", "streak_5", "streak_10", "rating_1200", etc.
+  name        String
+  description String
+  icon        String
+  earnedAt    DateTime @default(now())
+
+  @@map("achievements")
+}
+
+model Season {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  startDate   DateTime
+  endDate     DateTime?
+  isActive    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("seasons")
+}
