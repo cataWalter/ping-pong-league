@@ -99,8 +99,8 @@ export default async function StatsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">📊 Statistics & Analytics</h1>
-        <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+        <h1 className="text-2xl font-bold text-gray-900">📊 Statistics & Analytics</h1>
+        <p className="mt-1 text-sm text-gray-500">
           Comprehensive league statistics and player analytics
         </p>
       </div>
@@ -153,7 +153,7 @@ export default async function StatsPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Rating Distribution */}
         <Card>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Rating Distribution</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Rating Distribution</h3>
           <div className="space-y-3">
             {Object.entries(stats.ratingBrackets).map(([bracket, count]) => {
               const percentage = stats.totalPlayers > 0 ? (count / stats.totalPlayers) * 100 : 0
@@ -168,10 +168,10 @@ export default async function StatsPage() {
               return (
                 <div key={bracket}>
                   <div className="flex justify-between text-sm mb-1">
-                    <span className="text-gray-600 dark:text-gray-400">{bracket}</span>
-                    <span className="text-gray-900 dark:text-white font-medium">{count} ({Math.round(percentage)}%)</span>
+                    <span className="text-gray-600 text-gray-400">{bracket}</span>
+                    <span className="text-gray-900 text-white font-medium">{count} ({Math.round(percentage)}%)</span>
                   </div>
-                  <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                  <div className="w-full bg-gray-200 bg-gray-700 rounded-full h-3">
                     <div
                       className={`${colors[bracket]} h-3 rounded-full transition-all duration-500`}
                       style={{ width: `${percentage}%` }}
@@ -185,10 +185,10 @@ export default async function StatsPage() {
 
         {/* Recent Form */}
         <Card>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Recent Winners</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Recent Winners</h3>
           <div className="flex flex-wrap gap-2">
             {stats.recentWinners.length === 0 ? (
-              <p className="text-gray-500 dark:text-gray-400 text-sm">No recent matches</p>
+              <p className="text-gray-500 text-gray-400 text-sm">No recent matches</p>
             ) : (
               stats.recentWinners.map((winner, index) => (
                 <Badge key={index} variant="success" size="sm">
@@ -201,7 +201,7 @@ export default async function StatsPage() {
 
         {/* Top Rated Players */}
         <Card>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Top Rated Players</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Top Rated Players</h3>
           <div className="space-y-3">
             {stats.topRated.map((player, index) => (
               <div key={player.id} className="flex items-center justify-between">
@@ -211,11 +211,11 @@ export default async function StatsPage() {
                     ${index === 0 ? 'bg-yellow-100 text-yellow-800' : ''}
                     ${index === 1 ? 'bg-gray-100 text-gray-800' : ''}
                     ${index === 2 ? 'bg-orange-100 text-orange-800' : ''}
-                    ${index > 2 ? 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300' : ''}
+                    ${index > 2 ? 'bg-gray-100 bg-gray-700 text-gray-600 text-gray-300' : ''}
                   `}>
                     {index + 1}
                   </span>
-                  <Link href={`/players/${player.id}`} className="text-sm font-medium text-gray-900 dark:text-white hover:text-primary-600 transition-colors">
+                  <Link href={`/players/${player.id}`} className="text-sm font-medium text-gray-900 hover:text-primary-600 transition-colors">
                     {player.name}
                   </Link>
                 </div>
@@ -227,15 +227,15 @@ export default async function StatsPage() {
 
         {/* Most Wins */}
         <Card>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Most Wins</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Most Wins</h3>
           <div className="space-y-3">
             {stats.mostWins.map((player, index) => (
               <div key={player.id} className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300">
+                  <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full text-xs font-medium bg-gray-100 bg-gray-700 text-gray-600 text-gray-300">
                     {index + 1}
                   </span>
-                  <Link href={`/players/${player.id}`} className="text-sm font-medium text-gray-900 dark:text-white hover:text-primary-600 transition-colors">
+                  <Link href={`/players/${player.id}`} className="text-sm font-medium text-gray-900 hover:text-primary-600 transition-colors">
                     {player.name}
                   </Link>
                 </div>
@@ -247,28 +247,28 @@ export default async function StatsPage() {
 
         {/* Best Win Rate */}
         <Card>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Best Win Rate (min 3 matches)</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Best Win Rate (min 3 matches)</h3>
           <div className="space-y-3">
             {stats.bestWinRate.map((player, index) => {
               const winRate = calculateWinRate(player.wins, player.losses)
               return (
                 <div key={player.id} className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300">
+                    <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full text-xs font-medium bg-gray-100 bg-gray-700 text-gray-600 text-gray-300">
                       {index + 1}
                     </span>
-                    <Link href={`/players/${player.id}`} className="text-sm font-medium text-gray-900 dark:text-white hover:text-primary-600 transition-colors">
+                    <Link href={`/players/${player.id}`} className="text-sm font-medium text-gray-900 hover:text-primary-600 transition-colors">
                       {player.name}
                     </Link>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-16 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                    <div className="w-16 bg-gray-200 bg-gray-700 rounded-full h-2">
                       <div
                         className="bg-primary-600 h-2 rounded-full"
                         style={{ width: `${winRate}%` }}
                       />
                     </div>
-                    <span className="text-sm font-semibold text-gray-900 dark:text-white w-12 text-right">{winRate}%</span>
+                    <span className="text-sm font-semibold text-gray-900 w-12 text-right">{winRate}%</span>
                   </div>
                 </div>
               )
@@ -278,7 +278,7 @@ export default async function StatsPage() {
 
         {/* Achievements */}
         <Card>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Recent Achievements</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Recent Achievements</h3>
           <div className="space-y-3">
             {stats.players
               .flatMap((p) => p.achievements.map((a) => ({ ...a, playerName: p.name, playerId: p.id })))
@@ -288,17 +288,17 @@ export default async function StatsPage() {
                 <Link
                   key={index}
                   href={`/players/${achievement.playerId}`}
-                  className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"
+                  className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 hover:bg-gray-800/50 transition-colors"
                 >
                   <span className="text-2xl">{achievement.icon}</span>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-gray-900 dark:text-white truncate">{achievement.name}</p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{achievement.playerName}</p>
+                    <p className="text-sm font-medium text-gray-900 truncate">{achievement.name}</p>
+                    <p className="text-xs text-gray-500 truncate">{achievement.playerName}</p>
                   </div>
                 </Link>
               ))}
             {stats.players.flatMap((p) => p.achievements).length === 0 && (
-              <p className="text-sm text-gray-500 dark:text-gray-400">No achievements earned yet.</p>
+              <p className="text-sm text-gray-500">No achievements earned yet.</p>
             )}
           </div>
         </Card>
@@ -321,10 +321,10 @@ function StatCard({
   highlight?: boolean
 }) {
   const colors: Record<string, string> = {
-    blue: 'bg-blue-100 dark:bg-blue-900/30 text-blue-600',
-    green: 'bg-green-100 dark:bg-green-900/30 text-green-600',
-    purple: 'bg-purple-100 dark:bg-purple-900/30 text-purple-600',
-    yellow: 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600',
+    blue: 'bg-blue-100 bg-blue-900/30 text-blue-600',
+    green: 'bg-green-100 bg-green-900/30 text-green-600',
+    purple: 'bg-purple-100 bg-purple-900/30 text-purple-600',
+    yellow: 'bg-yellow-100 bg-yellow-900/30 text-yellow-600',
   }
 
   return (
@@ -334,8 +334,8 @@ function StatCard({
           {icon}
         </div>
         <div>
-          <p className="text-sm font-medium text-gray-500 dark:text-gray-400">{label}</p>
-          <p className="text-2xl font-bold text-gray-900 dark:text-white">{value}</p>
+          <p className="text-sm font-medium text-gray-500">{label}</p>
+          <p className="text-2xl font-bold text-gray-900">{value}</p>
         </div>
       </div>
     </Card>

@@ -3,7 +3,6 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Link from 'next/link'
 import ClientProviders from '@/components/ClientProviders'
-import ThemeToggle from '@/components/ThemeToggle'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -33,11 +32,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-200`}>
+    <html lang="en">
+      <body className={`${inter.className} min-h-screen bg-gray-50`}>
         <ClientProviders>
           {/* Navigation */}
-          <nav className="sticky top-0 z-50 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+          <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between h-16">
                 {/* Logo */}
@@ -47,7 +46,7 @@ export default function RootLayout({
                     className="flex items-center gap-2 hover:opacity-80 transition-opacity"
                   >
                     <span className="text-2xl">🏓</span>
-                    <span className="font-bold text-xl text-gray-900 dark:text-white hidden sm:block">
+                    <span className="font-bold text-xl text-gray-900 hidden sm:block">
                       Ping Pong League
                     </span>
                   </Link>
@@ -58,7 +57,7 @@ export default function RootLayout({
                       <Link
                         key={item.name}
                         href={item.href}
-                        className="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                        className="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-100 transition-colors"
                       >
                         {item.name}
                       </Link>
@@ -68,7 +67,6 @@ export default function RootLayout({
 
                 {/* Right side */}
                 <div className="flex items-center gap-2">
-                  <ThemeToggle />
                   <Link
                     href="/matches/new"
                     className="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg shadow-sm text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors"
@@ -82,13 +80,13 @@ export default function RootLayout({
           </nav>
 
           {/* Mobile Navigation */}
-          <div className="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 safe-area-pb">
+          <div className="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-200 safe-area-pb">
             <div className="flex justify-around">
               {navigation.slice(0, 5).map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="flex flex-col items-center py-2 px-3 text-xs font-medium text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                  className="flex flex-col items-center py-2 px-3 text-xs font-medium text-gray-600 hover:text-primary-600 transition-colors"
                 >
                   {item.name === 'Leaderboard' && '🏆'}
                   {item.name === 'Matches' && '🎾'}
@@ -107,16 +105,16 @@ export default function RootLayout({
           </main>
 
           {/* Footer */}
-          <footer className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-auto">
+          <footer className="bg-white border-t border-gray-200 mt-auto">
             <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
               <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-                <p className="text-sm text-gray-500 dark:text-gray-400">
+                <p className="text-sm text-gray-500">
                   © {new Date().getFullYear()} Ping Pong League. Built with Next.js & Turso.
                 </p>
                 <div className="flex items-center gap-4">
                   <Link
                     href="https://github.com"
-                    className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                    className="text-gray-400 hover:text-gray-600 transition-colors"
                   >
                     <span className="sr-only">GitHub</span>
                     <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">

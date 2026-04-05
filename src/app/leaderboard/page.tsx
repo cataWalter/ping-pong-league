@@ -40,8 +40,8 @@ export default async function LeaderboardPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">🏆 Leaderboard</h1>
-          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+          <h1 className="text-2xl font-bold text-gray-900">🏆 Leaderboard</h1>
+          <p className="mt-1 text-sm text-gray-500">
             Current rankings based on ELO ratings
           </p>
         </div>
@@ -50,8 +50,8 @@ export default async function LeaderboardPage() {
       {/* Top 3 Podium */}
       {leaderboard.length >= 3 && (
         <Card className="overflow-hidden">
-          <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">🥇 Top Players</h3>
+          <div className="px-6 py-4 border-b border-gray-200 border-gray-700">
+            <h3 className="text-lg font-semibold text-gray-900">🥇 Top Players</h3>
           </div>
           <div className="p-6">
             <div className="flex items-end justify-center gap-4 sm:gap-8">
@@ -63,14 +63,14 @@ export default async function LeaderboardPage() {
                   showRank
                   rank={2}
                 />
-                <p className="mt-2 text-sm font-medium text-gray-900 dark:text-white">
+                <p className="mt-2 text-sm font-medium text-gray-900">
                   {leaderboard[1].player.name}
                 </p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">
+                <p className="text-xs text-gray-500">
                   {Math.round(leaderboard[1].player.rating)} rating
                 </p>
-                <div className="mt-4 w-20 sm:w-28 h-24 sm:h-32 bg-gray-200 dark:bg-gray-700 rounded-t-lg flex items-start justify-center pt-2">
-                  <span className="text-2xl font-bold text-gray-500 dark:text-gray-400">2</span>
+                <div className="mt-4 w-20 sm:w-28 h-24 sm:h-32 bg-gray-200 bg-gray-700 rounded-t-lg flex items-start justify-center pt-2">
+                  <span className="text-2xl font-bold text-gray-500">2</span>
                 </div>
               </div>
 
@@ -82,14 +82,14 @@ export default async function LeaderboardPage() {
                   showRank
                   rank={1}
                 />
-                <p className="mt-2 text-sm font-semibold text-gray-900 dark:text-white">
+                <p className="mt-2 text-sm font-semibold text-gray-900">
                   {leaderboard[0].player.name}
                 </p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">
+                <p className="text-xs text-gray-500">
                   {Math.round(leaderboard[0].player.rating)} rating
                 </p>
-                <div className="mt-4 w-24 sm:w-32 h-32 sm:h-40 bg-yellow-200 dark:bg-yellow-700 rounded-t-lg flex items-start justify-center pt-2">
-                  <span className="text-3xl font-bold text-yellow-700 dark:text-yellow-300">1</span>
+                <div className="mt-4 w-24 sm:w-32 h-32 sm:h-40 bg-yellow-200 bg-yellow-700 rounded-t-lg flex items-start justify-center pt-2">
+                  <span className="text-3xl font-bold text-yellow-700 text-yellow-300">1</span>
                 </div>
               </div>
 
@@ -101,14 +101,14 @@ export default async function LeaderboardPage() {
                   showRank
                   rank={3}
                 />
-                <p className="mt-2 text-sm font-medium text-gray-900 dark:text-white">
+                <p className="mt-2 text-sm font-medium text-gray-900">
                   {leaderboard[2].player.name}
                 </p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">
+                <p className="text-xs text-gray-500">
                   {Math.round(leaderboard[2].player.rating)} rating
                 </p>
-                <div className="mt-4 w-16 sm:w-24 h-16 sm:h-24 bg-orange-200 dark:bg-orange-700 rounded-t-lg flex items-start justify-center pt-2">
-                  <span className="text-xl font-bold text-orange-700 dark:text-orange-300">3</span>
+                <div className="mt-4 w-16 sm:w-24 h-16 sm:h-24 bg-orange-200 bg-orange-700 rounded-t-lg flex items-start justify-center pt-2">
+                  <span className="text-xl font-bold text-orange-700 text-orange-300">3</span>
                 </div>
               </div>
             </div>
@@ -118,40 +118,40 @@ export default async function LeaderboardPage() {
 
       {/* Full Leaderboard */}
       <Card padding="none" className="overflow-hidden">
-        <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Full Rankings</h3>
+        <div className="px-6 py-4 border-b border-gray-200 border-gray-700">
+          <h3 className="text-lg font-semibold text-gray-900">Full Rankings</h3>
         </div>
         <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-            <thead className="bg-gray-50 dark:bg-gray-800/50">
+          <table className="min-w-full divide-y divide-gray-200 divide-gray-700">
+            <thead className="bg-gray-50 bg-gray-800/50">
               <tr>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Rank
                 </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Player
                 </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Level
                 </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Rating
                 </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider hidden sm:table-cell">
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hidden sm:table-cell">
                   W-L
                 </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider hidden md:table-cell">
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hidden md:table-cell">
                   Win Rate
                 </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider hidden lg:table-cell">
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hidden lg:table-cell">
                   Matches
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
+            <tbody className="bg-white bg-gray-900 divide-y divide-gray-200 divide-gray-700">
               {leaderboard.length === 0 ? (
                 <tr>
-                  <td colSpan={7} className="px-6 py-12 text-center text-gray-500 dark:text-gray-400 text-sm">
+                  <td colSpan={7} className="px-6 py-12 text-center text-gray-500 text-sm">
                     No players registered yet. Be the first to join!
                   </td>
                 </tr>
@@ -161,7 +161,7 @@ export default async function LeaderboardPage() {
                   return (
                     <tr
                       key={entry.player.id}
-                      className="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"
+                      className="hover:bg-gray-50 hover:bg-gray-800/50 transition-colors"
                     >
                       <td className="px-6 py-4 whitespace-nowrap">
                         <span
@@ -170,7 +170,7 @@ export default async function LeaderboardPage() {
                             ${entry.rank === 1 ? 'bg-yellow-100 text-yellow-800' : ''}
                             ${entry.rank === 2 ? 'bg-gray-100 text-gray-800' : ''}
                             ${entry.rank === 3 ? 'bg-orange-100 text-orange-800' : ''}
-                            ${entry.rank > 3 ? 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300' : ''}
+                            ${entry.rank > 3 ? 'bg-gray-100 bg-gray-700 text-gray-600 text-gray-300' : ''}
                           `}
                         >
                           {entry.rank}
@@ -182,7 +182,7 @@ export default async function LeaderboardPage() {
                           className="flex items-center gap-3 group"
                         >
                           <Avatar name={entry.player.name} size="sm" />
-                          <span className="text-sm font-medium text-gray-900 dark:text-white group-hover:text-primary-600 transition-colors">
+                          <span className="text-sm font-medium text-gray-900 group-hover:text-primary-600 transition-colors">
                             {entry.player.name}
                           </span>
                         </Link>
@@ -193,25 +193,25 @@ export default async function LeaderboardPage() {
                         </Badge>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300">
+                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 bg-primary-900/30 text-primary-800 text-primary-300">
                           {Math.round(entry.player.rating)}
                         </span>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 hidden sm:table-cell">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 hidden sm:table-cell">
                         {entry.player.wins} - {entry.player.losses}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap hidden md:table-cell">
                         <div className="flex items-center gap-2">
-                          <div className="w-20 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                          <div className="w-20 bg-gray-200 bg-gray-700 rounded-full h-2">
                             <div
                               className="bg-primary-600 h-2 rounded-full transition-all duration-500"
                               style={{ width: `${entry.winRate}%` }}
                             />
                           </div>
-                          <span className="text-sm text-gray-500 dark:text-gray-400">{entry.winRate}%</span>
+                          <span className="text-sm text-gray-500">{entry.winRate}%</span>
                         </div>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 hidden lg:table-cell">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 hidden lg:table-cell">
                         {entry.totalMatches}
                       </td>
                     </tr>
@@ -225,8 +225,8 @@ export default async function LeaderboardPage() {
 
       {/* Rating Distribution */}
       <Card>
-        <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Rating Distribution</h3>
+        <div className="px-6 py-4 border-b border-gray-200 border-gray-700">
+          <h3 className="text-lg font-semibold text-gray-900">Rating Distribution</h3>
         </div>
         <div className="p-6">
           <RatingDistribution players={leaderboard.map((l) => l.player)} />
@@ -259,12 +259,12 @@ async function RatingDistribution({ players }: { players: Array<{ rating: number
         return (
           <div key={bracket.label}>
             <div className="flex justify-between text-sm mb-1">
-              <span className="text-gray-600 dark:text-gray-400">{bracket.label}</span>
-              <span className="text-gray-900 dark:text-white font-medium">
+              <span className="text-gray-600 text-gray-400">{bracket.label}</span>
+              <span className="text-gray-900 text-white font-medium">
                 {count} ({Math.round(percentage)}%)
               </span>
             </div>
-            <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+            <div className="w-full bg-gray-200 bg-gray-700 rounded-full h-3">
               <div
                 className={`${bracket.color} h-3 rounded-full transition-all duration-500`}
                 style={{ width: `${percentage}%` }}

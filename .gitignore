@@ -47,3 +47,4 @@ libsql.db
 
 # Wrangler
 .wrangler
+.env.production

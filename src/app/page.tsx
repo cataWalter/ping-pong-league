@@ -84,42 +84,42 @@ export default async function Home() {
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         <Card hover className="relative overflow-hidden">
           <div className="flex items-center gap-4">
-            <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center">
+            <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-primary-100 bg-primary-900/30 flex items-center justify-center">
               <svg className="w-6 h-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
             </div>
             <div>
-              <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Total Players</p>
-              <p className="text-3xl font-bold text-gray-900 dark:text-white">{stats.totalPlayers}</p>
+              <p className="text-sm font-medium text-gray-500">Total Players</p>
+              <p className="text-3xl font-bold text-gray-900">{stats.totalPlayers}</p>
             </div>
           </div>
         </Card>
 
         <Card hover className="relative overflow-hidden">
           <div className="flex items-center gap-4">
-            <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+            <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-100 bg-blue-900/30 flex items-center justify-center">
               <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
             <div>
-              <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Total Matches</p>
-              <p className="text-3xl font-bold text-gray-900 dark:text-white">{stats.totalMatches}</p>
+              <p className="text-sm font-medium text-gray-500">Total Matches</p>
+              <p className="text-3xl font-bold text-gray-900">{stats.totalMatches}</p>
             </div>
           </div>
         </Card>
 
         <Card hover className="relative overflow-hidden">
           <div className="flex items-center gap-4">
-            <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-yellow-100 dark:bg-yellow-900/30 flex items-center justify-center">
+            <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-yellow-100 bg-yellow-900/30 flex items-center justify-center">
               <svg className="w-6 h-6 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
               </svg>
             </div>
             <div>
-              <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Achievements</p>
-              <p className="text-3xl font-bold text-gray-900 dark:text-white">{stats.totalAchievements}</p>
+              <p className="text-sm font-medium text-gray-500">Achievements</p>
+              <p className="text-3xl font-bold text-gray-900">{stats.totalAchievements}</p>
             </div>
           </div>
         </Card>
@@ -129,14 +129,14 @@ export default async function Home() {
         {/* Recent Matches */}
         <Card>
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Recent Matches</h3>
+            <h3 className="text-lg font-semibold text-gray-900">Recent Matches</h3>
             <Link href="/matches" className="text-sm font-medium text-primary-600 hover:text-primary-500">
               View all →
             </Link>
           </div>
           <div className="space-y-4">
             {recentMatches.length === 0 ? (
-              <div className="text-center py-8 text-gray-500 dark:text-gray-400">
+              <div className="text-center py-8 text-gray-500">
                 <svg className="mx-auto h-12 w-12 text-gray-400 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                 </svg>
@@ -151,13 +151,13 @@ export default async function Home() {
                 return (
                   <div
                     key={match.id}
-                    className="flex items-center justify-between p-4 rounded-xl bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                    className="flex items-center justify-between p-4 rounded-xl bg-gray-50 800/50 hover:bg-gray-100 hover:bg-gray-800 transition-colors"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <div className="flex items-center gap-3 flex-1">
                       <Avatar name={match.player1.name} size="sm" />
                       <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium text-gray-900 dark:text-white truncate">
+                        <p className="text-sm font-medium text-gray-900 truncate">
                           <span className={player1Won ? 'text-primary-600 font-semibold' : ''}>
                             {match.player1.name}
                           </span>
@@ -166,7 +166,7 @@ export default async function Home() {
                             {match.player2.name}
                           </span>
                         </p>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">{formatDate(match.playedAt)}</p>
+                        <p className="text-xs text-gray-500">{formatDate(match.playedAt)}</p>
                       </div>
                     </div>
                     <Badge variant="default" className="ml-4 font-mono">
@@ -182,14 +182,14 @@ export default async function Home() {
         {/* Top Players */}
         <Card>
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Top Players</h3>
+            <h3 className="text-lg font-semibold text-gray-900">Top Players</h3>
             <Link href="/leaderboard" className="text-sm font-medium text-primary-600 hover:text-primary-500">
               View all →
             </Link>
           </div>
           <div className="space-y-3">
             {topPlayers.length === 0 ? (
-              <div className="text-center py-8 text-gray-500 dark:text-gray-400">
+              <div className="text-center py-8 text-gray-500">
                 <p>No players registered yet.</p>
               </div>
             ) : (
@@ -197,7 +197,7 @@ export default async function Home() {
                 <Link
                   key={player.id}
                   href={`/players/${player.id}`}
-                  className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors group"
+                  className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 hover:bg-gray-800/50 transition-colors group"
                 >
                   <Avatar
                     name={player.name}
@@ -206,16 +206,16 @@ export default async function Home() {
                     rank={index + 1}
                   />
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-gray-900 dark:text-white group-hover:text-primary-600 transition-colors">
+                    <p className="text-sm font-medium text-gray-900 group-hover:text-primary-600 transition-colors">
                       {player.name}
                     </p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                    <p className="text-xs text-gray-500">
                       {player.wins}W - {player.losses}L • {calculateWinRate(player.wins, player.losses)}%
                     </p>
                   </div>
                   <div className="text-right">
                     <p className="text-lg font-bold text-primary-600">{Math.round(player.rating)}</p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">rating</p>
+                    <p className="text-xs text-gray-500">rating</p>
                   </div>
                 </Link>
               ))
@@ -228,7 +228,7 @@ export default async function Home() {
       {activeStreaks.length > 0 && (
         <Card>
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+            <h3 className="text-lg font-semibold text-gray-900">
               🔥 Hot Streaks
             </h3>
           </div>
@@ -236,12 +236,12 @@ export default async function Home() {
             {activeStreaks.map((player, index) => (
               <div
                 key={player.id}
-                className="flex items-center gap-3 p-4 rounded-xl bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 border border-orange-100 dark:border-orange-800"
+                className="flex items-center gap-3 p-4 rounded-xl bg-gradient-to-br from-orange-50 to-red-50 from-orange-900/20 to-red-900/20 border border-orange-100 border-orange-800"
               >
                 <Avatar name={player.name} size="md" />
                 <div>
-                  <p className="font-medium text-gray-900 dark:text-white">{player.name}</p>
-                  <p className="text-sm text-orange-600 dark:text-orange-400 font-semibold">
+                  <p className="font-medium text-gray-900">{player.name}</p>
+                  <p className="text-sm text-orange-600 text-orange-400 font-semibold">
                     {player.streak} win streak
                   </p>
                 </div>

@@ -114,8 +114,8 @@ export default async function PlayerPage({ params }: { params: { id: string } })
 
         <div className="grid grid-cols-4 gap-4 px-6 py-6">
           <div className="text-center">
-            <p className="text-sm text-gray-500 dark:text-gray-400">Rating</p>
-            <p className="text-3xl font-bold text-gray-900 dark:text-white">
+            <p className="text-sm text-gray-500">Rating</p>
+            <p className="text-3xl font-bold text-gray-900">
               {Math.round(player.rating)}
             </p>
             {ratingTrend !== 0 && (
@@ -125,16 +125,16 @@ export default async function PlayerPage({ params }: { params: { id: string } })
             )}
           </div>
           <div className="text-center">
-            <p className="text-sm text-gray-500 dark:text-gray-400">Wins</p>
+            <p className="text-sm text-gray-500">Wins</p>
             <p className="text-3xl font-bold text-green-600">{player.wins}</p>
           </div>
           <div className="text-center">
-            <p className="text-sm text-gray-500 dark:text-gray-400">Losses</p>
+            <p className="text-sm text-gray-500">Losses</p>
             <p className="text-3xl font-bold text-red-600">{player.losses}</p>
           </div>
           <div className="text-center">
-            <p className="text-sm text-gray-500 dark:text-gray-400">Win Rate</p>
-            <p className="text-3xl font-bold text-gray-900 dark:text-white">{winRate}%</p>
+            <p className="text-sm text-gray-500">Win Rate</p>
+            <p className="text-3xl font-bold text-gray-900">{winRate}%</p>
           </div>
         </div>
 
@@ -157,7 +157,7 @@ export default async function PlayerPage({ params }: { params: { id: string } })
       {/* Rating History Chart */}
       {ratingHistoryData.length > 0 && (
         <Card>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">
             Rating History
           </h3>
           <div className="h-64">
@@ -169,20 +169,20 @@ export default async function PlayerPage({ params }: { params: { id: string } })
       {/* Achievements */}
       {player.achievements.length > 0 && (
         <Card>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">
             🏆 Achievements ({player.achievements.length})
           </h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
             {player.achievements.map((achievement) => (
               <div
                 key={achievement.id}
-                className="flex flex-col items-center p-4 rounded-xl bg-gray-50 dark:bg-gray-800/50"
+                className="flex flex-col items-center p-4 rounded-xl bg-gray-50 800/50"
               >
                 <span className="text-3xl mb-2">{achievement.icon}</span>
-                <p className="text-sm font-medium text-gray-900 dark:text-white text-center">
+                <p className="text-sm font-medium text-gray-900 text-center">
                   {achievement.name}
                 </p>
-                <p className="text-xs text-gray-500 dark:text-gray-400 text-center mt-1">
+                <p className="text-xs text-gray-500 text-center mt-1">
                   {formatDate(achievement.earnedAt)}
                 </p>
               </div>
@@ -193,31 +193,31 @@ export default async function PlayerPage({ params }: { params: { id: string } })
 
       {/* Match History */}
       <Card padding="none" className="overflow-hidden">
-        <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Match History</h3>
+        <div className="px-6 py-4 border-b border-gray-200 border-gray-700">
+          <h3 className="text-lg font-semibold text-gray-900">Match History</h3>
         </div>
         <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-            <thead className="bg-gray-50 dark:bg-gray-800/50">
+          <table className="min-w-full divide-y divide-gray-200 divide-gray-700">
+            <thead className="bg-gray-50 bg-gray-800/50">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
                   Date
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
                   Opponent
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
                   Score
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
                   Result
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
+            <tbody className="bg-white bg-gray-900 divide-y divide-gray-200 divide-gray-700">
               {allMatches.length === 0 ? (
                 <tr>
-                  <td colSpan={4} className="px-6 py-8 text-center text-gray-500 dark:text-gray-400 text-sm">
+                  <td colSpan={4} className="px-6 py-8 text-center text-gray-500 text-sm">
                     No matches played yet.
                   </td>
                 </tr>
@@ -231,15 +231,15 @@ export default async function PlayerPage({ params }: { params: { id: string } })
                   return (
                     <tr
                       key={match.id}
-                      className="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"
+                      className="hover:bg-gray-50 hover:bg-gray-800/50 transition-colors"
                     >
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         {formatDate(match.playedAt)}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <Link
                           href={`/players/${match.opponent.id}`}
-                          className="flex items-center gap-2 text-sm font-medium text-gray-900 dark:text-white hover:text-primary-600 transition-colors"
+                          className="flex items-center gap-2 text-sm font-medium text-gray-900 hover:text-primary-600 transition-colors"
                         >
                           <Avatar name={match.opponent.name} size="sm" />
                           {match.opponent.name}

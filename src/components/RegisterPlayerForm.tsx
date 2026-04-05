@@ -45,13 +45,13 @@ export default function RegisterPlayerForm({ onSuccess }: { onSuccess: () => voi
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       {error && (
-        <div className="bg-red-50 dark:bg-red-900 border border-red-200 dark:border-red-700 text-red-600 dark:text-red-300 px-4 py-3 rounded-md text-sm">
+        <div className="bg-red-50 bg-red-900 border border-red-200 border-red-700 text-red-600 text-red-300 px-4 py-3 rounded-md text-sm">
           {error}
         </div>
       )}
       
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+        <label htmlFor="name" className="block text-sm font-medium text-gray-700 text-gray-300">
           Name *
         </label>
         <input
@@ -59,12 +59,12 @@ export default function RegisterPlayerForm({ onSuccess }: { onSuccess: () => voi
           id="name"
           name="name"
           required
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm"
+          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 bg-gray-700 border-gray-600 text-white sm:text-sm"
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+        <label htmlFor="email" className="block text-sm font-medium text-gray-700 text-gray-300">
           Email *
         </label>
         <input
@@ -72,12 +72,12 @@ export default function RegisterPlayerForm({ onSuccess }: { onSuccess: () => voi
           id="email"
           name="email"
           required
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm"
+          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 bg-gray-700 border-gray-600 text-white sm:text-sm"
         />
       </div>
 
       <div>
-        <label htmlFor="department" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+        <label htmlFor="department" className="block text-sm font-medium text-gray-700 text-gray-300">
           Department
         </label>
         <input
@@ -85,7 +85,7 @@ export default function RegisterPlayerForm({ onSuccess }: { onSuccess: () => voi
           id="department"
           name="department"
           placeholder="e.g., Engineering, Marketing"
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm"
+          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 bg-gray-700 border-gray-600 text-white sm:text-sm"
         />
       </div>
 

@@ -95,8 +95,8 @@ export default function NewMatchPage() {
   return (
     <div className="max-w-3xl mx-auto space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">🎾 Record a Match</h1>
-        <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+        <h1 className="text-2xl font-bold text-gray-900">🎾 Record a Match</h1>
+        <p className="mt-1 text-sm text-gray-500">
           Enter the match details below. ELO ratings will be calculated automatically.
         </p>
       </div>
@@ -108,7 +108,7 @@ export default function NewMatchPage() {
             <div>
               <label
                 htmlFor="player1"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                className="block text-sm font-medium text-gray-700 text-gray-300 mb-1"
               >
                 Player 1
               </label>
@@ -117,7 +117,7 @@ export default function NewMatchPage() {
                 value={player1Id}
                 onChange={(e) => setPlayer1Id(e.target.value)}
                 required
-                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 border-gray-600 rounded-lg bg-white bg-gray-700 text-gray-900 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               >
                 <option value="">Select player</option>
                 {players.map((player) => (
@@ -131,7 +131,7 @@ export default function NewMatchPage() {
             <div>
               <label
                 htmlFor="player2"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                className="block text-sm font-medium text-gray-700 text-gray-300 mb-1"
               >
                 Player 2
               </label>
@@ -140,7 +140,7 @@ export default function NewMatchPage() {
                 value={player2Id}
                 onChange={(e) => setPlayer2Id(e.target.value)}
                 required
-                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 border-gray-600 rounded-lg bg-white bg-gray-700 text-gray-900 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               >
                 <option value="">Select player</option>
                 {players.map((player) => (
@@ -154,34 +154,34 @@ export default function NewMatchPage() {
 
           {/* Win Probability */}
           {winProbability && player1 && player2 && (
-            <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4">
-              <p className="text-sm font-medium text-blue-800 dark:text-blue-300 mb-2">
+            <div className="bg-blue-50 bg-blue-900/20 rounded-lg p-4">
+              <p className="text-sm font-medium text-blue-800 text-blue-300 mb-2">
                 Win Probability
               </p>
               <div className="flex items-center gap-4">
-                <span className="text-sm font-medium text-gray-700 dark:text-gray-300 w-20">
+                <span className="text-sm font-medium text-gray-700 text-gray-300 w-20">
                   {player1.name}
                 </span>
-                <div className="flex-1 h-4 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                <div className="flex-1 h-4 bg-gray-200 bg-gray-700 rounded-full overflow-hidden">
                   <div
                     className="h-full bg-primary-600 transition-all duration-500"
                     style={{ width: `${winProbability.p1}%` }}
                   />
                 </div>
-                <span className="text-sm font-bold text-gray-900 dark:text-white w-12 text-center">
+                <span className="text-sm font-bold text-gray-900 w-12 text-center">
                   {winProbability.p1}%
                 </span>
                 <span className="text-gray-400">vs</span>
-                <span className="text-sm font-bold text-gray-900 dark:text-white w-12 text-center">
+                <span className="text-sm font-bold text-gray-900 w-12 text-center">
                   {winProbability.p2}%
                 </span>
-                <div className="flex-1 h-4 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                <div className="flex-1 h-4 bg-gray-200 bg-gray-700 rounded-full overflow-hidden">
                   <div
                     className="h-full bg-gray-500 transition-all duration-500"
                     style={{ width: `${winProbability.p2}%` }}
                   />
                 </div>
-                <span className="text-sm font-medium text-gray-700 dark:text-gray-300 w-20">
+                <span className="text-sm font-medium text-gray-700 text-gray-300 w-20">
                   {player2.name}
                 </span>
               </div>
@@ -193,7 +193,7 @@ export default function NewMatchPage() {
             <div>
               <label
                 htmlFor="player1Score"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                className="block text-sm font-medium text-gray-700 text-gray-300 mb-1"
               >
                 {player1 ? `${player1.name}'s Score` : "Player 1's Score"}
               </label>
@@ -204,14 +204,14 @@ export default function NewMatchPage() {
                 onChange={(e) => setPlayer1Score(e.target.value)}
                 min="0"
                 required
-                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent text-2xl font-bold text-center"
+                className="w-full px-3 py-2 border border-gray-300 border-gray-600 rounded-lg bg-white bg-gray-700 text-gray-900 focus:ring-2 focus:ring-primary-500 focus:border-transparent text-2xl font-bold text-center"
               />
             </div>
 
             <div>
               <label
                 htmlFor="player2Score"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                className="block text-sm font-medium text-gray-700 text-gray-300 mb-1"
               >
                 {player2 ? `${player2.name}'s Score` : "Player 2's Score"}
               </label>
@@ -222,7 +222,7 @@ export default function NewMatchPage() {
                 onChange={(e) => setPlayer2Score(e.target.value)}
                 min="0"
                 required
-                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent text-2xl font-bold text-center"
+                className="w-full px-3 py-2 border border-gray-300 border-gray-600 rounded-lg bg-white bg-gray-700 text-gray-900 focus:ring-2 focus:ring-primary-500 focus:border-transparent text-2xl font-bold text-center"
               />
             </div>
           </div>
@@ -231,7 +231,7 @@ export default function NewMatchPage() {
           <div>
             <label
               htmlFor="bestOf"
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+              className="block text-sm font-medium text-gray-700 text-gray-300 mb-1"
             >
               Format
             </label>
@@ -239,7 +239,7 @@ export default function NewMatchPage() {
               id="bestOf"
               value={bestOf}
               onChange={(e) => setBestOf(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 border-gray-600 rounded-lg bg-white bg-gray-700 text-gray-900 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             >
               <option value="1">Single Game</option>
               <option value="3">Best of 3</option>
@@ -252,7 +252,7 @@ export default function NewMatchPage() {
           <div>
             <label
               htmlFor="notes"
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+              className="block text-sm font-medium text-gray-700 text-gray-300 mb-1"
             >
               Notes (optional)
             </label>
@@ -261,13 +261,13 @@ export default function NewMatchPage() {
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               rows={2}
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 border-gray-600 rounded-lg bg-white bg-gray-700 text-gray-900 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               placeholder="Any notes about the match..."
             />
           </div>
 
           {/* Submit */}
-          <div className="flex justify-end gap-3 pt-4 border-t border-gray-200 dark:border-gray-700">
+          <div className="flex justify-end gap-3 pt-4 border-t border-gray-200 border-gray-700">
             <Button
               type="button"
               variant="outline"
@@ -301,10 +301,10 @@ export default function NewMatchPage() {
             </svg>
           </div>
           <div>
-            <h3 className="text-sm font-medium text-blue-800 dark:text-blue-300">
+            <h3 className="text-sm font-medium text-blue-800 text-blue-300">
               About ELO Ratings
             </h3>
-            <p className="mt-1 text-sm text-blue-700 dark:text-blue-400">
+            <p className="mt-1 text-sm text-blue-700 text-blue-400">
               Ratings are calculated using a standard ELO system with a K-factor of 32.
               Winning against a higher-rated opponent earns more points, while beating a
               lower-rated opponent earns fewer points. Margin of victory also affects the

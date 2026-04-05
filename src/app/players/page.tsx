@@ -65,8 +65,8 @@ export default function PlayersPage() {
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">👥 Players</h1>
-            <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+            <h1 className="text-2xl font-bold text-gray-900">👥 Players</h1>
+            <p className="mt-1 text-sm text-gray-500">
               Loading players...
             </p>
           </div>
@@ -76,10 +76,10 @@ export default function PlayersPage() {
             <Card key={i} className="animate-pulse">
               <div className="p-6">
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                  <div className="w-12 h-12 bg-gray-200 bg-gray-700 rounded-full"></div>
                   <div className="flex-1">
-                    <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mb-2"></div>
-                    <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded w-1/2"></div>
+                    <div className="h-4 bg-gray-200 bg-gray-700 rounded w-3/4 mb-2"></div>
+                    <div className="h-3 bg-gray-200 bg-gray-700 rounded w-1/2"></div>
                   </div>
                 </div>
               </div>
@@ -94,8 +94,8 @@ export default function PlayersPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">👥 Players</h1>
-          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+          <h1 className="text-2xl font-bold text-gray-900">👥 Players</h1>
+          <p className="mt-1 text-sm text-gray-500">
             All registered players in the league ({players.length} total)
           </p>
         </div>
@@ -109,8 +109,8 @@ export default function PlayersPage() {
           <svg className="mx-auto h-16 w-16 text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
           </svg>
-          <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">No players yet</h3>
-          <p className="text-gray-500 dark:text-gray-400 mb-4">Be the first to join the league!</p>
+          <h3 className="text-lg font-medium text-gray-900 mb-2">No players yet</h3>
+          <p className="text-gray-500 text-gray-400 mb-4">Be the first to join the league!</p>
           <Button onClick={() => document.querySelector('details')?.click()}>
             Register Player
           </Button>
@@ -131,11 +131,11 @@ export default function PlayersPage() {
                         <Avatar name={player.name} src={player.avatar} size="lg" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white truncate">
+                        <h3 className="text-lg font-semibold text-gray-900 truncate">
                           {player.name}
                         </h3>
                         {player.department && (
-                          <p className="text-sm text-gray-500 dark:text-gray-400 truncate">
+                          <p className="text-sm text-gray-500 truncate">
                             {player.department}
                           </p>
                         )}
@@ -145,14 +145,14 @@ export default function PlayersPage() {
                         </div>
                       </div>
                       <div className="flex-shrink-0 text-right">
-                        <div className="text-2xl font-bold text-gray-900 dark:text-white">
+                        <div className="text-2xl font-bold text-gray-900">
                           #{index + 1}
                         </div>
-                        <div className="text-sm text-gray-500 dark:text-gray-400">
+                        <div className="text-sm text-gray-500">
                           {totalMatches} matches
                         </div>
                         {winRate !== null && (
-                          <div className="text-sm font-medium text-green-600 dark:text-green-400">
+                          <div className="text-sm font-medium text-green-600 text-green-400">
                             {winRate}% win rate
                           </div>
                         )}
@@ -160,9 +160,9 @@ export default function PlayersPage() {
                     </div>
 
                     {player.streak !== 0 && (
-                      <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+                      <div className="mt-4 pt-4 border-t border-gray-200 border-gray-700">
                         <div className="flex items-center justify-between">
-                          <span className="text-sm text-gray-500 dark:text-gray-400">Current Streak</span>
+                          <span className="text-sm text-gray-500">Current Streak</span>
                           <Badge 
                             variant={player.streak > 0 ? "success" : "error"} 
                             size="sm"
@@ -182,17 +182,17 @@ export default function PlayersPage() {
 
       {/* Registration Dialog */}
       <details className="group">
-        <summary className="flex items-center justify-between p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors">
+        <summary className="flex items-center justify-between p-4 bg-white bg-gray-800 rounded-lg border border-gray-200 border-gray-700 cursor-pointer hover:bg-gray-50 hover:bg-gray-750 transition-colors">
           <div>
-            <h3 className="font-semibold text-gray-900 dark:text-white">Register New Player</h3>
-            <p className="text-sm text-gray-500 dark:text-gray-400">Add a new player to the league</p>
+            <h3 className="font-semibold text-gray-900">Register New Player</h3>
+            <p className="text-sm text-gray-500">Add a new player to the league</p>
           </div>
           <svg className="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>
         </summary>
-        <div className="absolute right-0 mt-2 w-80 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-6 z-50 animate-fade-in">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+        <div className="absolute right-0 mt-2 w-80 bg-white bg-gray-800 rounded-xl shadow-lg border border-gray-200 border-gray-700 p-6 z-50 animate-fade-in">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">
             Register New Player
           </h3>
           <RegisterPlayerForm onSuccess={handlePlayerRegistered} />

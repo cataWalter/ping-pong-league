@@ -21,8 +21,8 @@ export default async function MatchesPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">🎾 Match History</h1>
-          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+          <h1 className="text-2xl font-bold text-gray-900">🎾 Match History</h1>
+          <p className="mt-1 text-sm text-gray-500">
             All recorded matches in the league ({matches.length} total)
           </p>
         </div>
@@ -39,27 +39,27 @@ export default async function MatchesPage() {
 
       <Card padding="none" className="overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-            <thead className="bg-gray-50 dark:bg-gray-800/50">
+          <table className="min-w-full divide-y divide-gray-200 divide-gray-700">
+            <thead className="bg-gray-50 bg-gray-800/50">
               <tr>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Date
                 </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Players
                 </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Score
                 </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider hidden sm:table-cell">
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hidden sm:table-cell">
                   Format
                 </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Winner
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
+            <tbody className="bg-white bg-gray-900 divide-y divide-gray-200 divide-gray-700">
               {matches.length === 0 ? (
                 <tr>
                   <td colSpan={5} className="px-6 py-12 text-center">
@@ -67,7 +67,7 @@ export default async function MatchesPage() {
                       <svg className="h-12 w-12 text-gray-400 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                       </svg>
-                      <p className="text-gray-500 dark:text-gray-400 text-sm">
+                      <p className="text-gray-500 text-gray-400 text-sm">
                         No matches recorded yet.
                       </p>
                       <Link href="/matches/new">
@@ -87,9 +87,9 @@ export default async function MatchesPage() {
                   return (
                     <tr
                       key={match.id}
-                      className="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors group"
+                      className="hover:bg-gray-50 hover:bg-gray-800/50 transition-colors group"
                     >
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         <div className="flex flex-col">
                           <span>{formatDate(match.playedAt)}</span>
                         </div>
@@ -98,13 +98,13 @@ export default async function MatchesPage() {
                         <div className="flex items-center gap-2">
                           <div className="flex items-center gap-2">
                             <Avatar name={match.player1.name} size="sm" />
-                            <span className={`text-sm font-medium ${player1Won ? 'text-primary-600 font-semibold' : 'text-gray-900 dark:text-white'}`}>
+                            <span className={`text-sm font-medium ${player1Won ? 'text-primary-600 font-semibold' : 'text-gray-900 text-white'}`}>
                               {match.player1.name}
                             </span>
                           </div>
                           <span className="text-gray-400">vs</span>
                           <div className="flex items-center gap-2">
-                            <span className={`text-sm font-medium ${player2Won ? 'text-primary-600 font-semibold' : 'text-gray-900 dark:text-white'}`}>
+                            <span className={`text-sm font-medium ${player2Won ? 'text-primary-600 font-semibold' : 'text-gray-900 text-white'}`}>
                               {match.player2.name}
                             </span>
                             <Avatar name={match.player2.name} size="sm" />
@@ -119,7 +119,7 @@ export default async function MatchesPage() {
                           {match.player1Score} - {match.player2Score}
                         </Badge>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 hidden sm:table-cell">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 hidden sm:table-cell">
                         {match.bestOf > 1 ? `Best of ${match.bestOf}` : 'Single'}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
@@ -128,7 +128,7 @@ export default async function MatchesPage() {
                             <svg className="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                             </svg>
-                            <span className="text-sm font-medium text-gray-900 dark:text-white">
+                            <span className="text-sm font-medium text-gray-900">
                               {winner.name}
                             </span>
                           </div>

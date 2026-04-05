@@ -18,12 +18,12 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="relative inline-flex items-center justify-center p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+      className="relative inline-flex items-center justify-center p-2 rounded-lg hover:bg-gray-100 hover:bg-gray-800 transition-colors"
       title={`Theme: ${theme}`}
     >
       {/* Sun icon for light mode */}
       <svg
-        className="h-5 w-5 text-yellow-500 dark:hidden"
+        className="h-5 w-5 text-yellow-500 hidden"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -38,7 +38,7 @@ export default function ThemeToggle() {
 
       {/* Moon icon for dark mode */}
       <svg
-        className="h-5 w-5 text-blue-400 hidden dark:block"
+        className="h-5 w-5 text-blue-400 hidden block"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
