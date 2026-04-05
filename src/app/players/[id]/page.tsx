@@ -5,6 +5,17 @@ import { notFound } from 'next/navigation'
 import { Avatar, Badge, Button, Card } from '@/components'
 import RatingChart from '@/components/RatingChart'
 
+// Generate static params for all players
+export async function generateStaticParams() {
+  const players = await prisma.player.findMany({
+    select: { id: true }
+  })
+  
+  return players.map((player) => ({
+    id: player.id,
+  }))
+}
+
 async function getPlayer(id: string) {
   const player = await prisma.player.findUnique({
     where: { id },

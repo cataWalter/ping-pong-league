@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    serverActions: {
-      allowedOrigins: ['localhost:3000'],
-    },
+  // Cloudflare Pages configuration
+  output: 'export',
+  trailingSlash: true,
+  images: {
+    unoptimized: true,
   },
 }
 

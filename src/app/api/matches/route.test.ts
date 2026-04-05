@@ -145,6 +145,38 @@ describe('Matches API', () => {
       expect(data).toEqual(mockMatch);
     });
 
+    it('should create a match with FormData', async () => {
+      const player1 = createPlayer({ id: '1', rating: 1000 });
+      const player2 = createPlayer({ id: '2', rating: 1000 });
+      mockPlayerFindUnique
+        .mockResolvedValueOnce(player1)
+        .mockResolvedValueOnce(player2);
+
+      const mockMatch = { id: 'match-1' };
+      mockMatchCreate.mockResolvedValue(mockMatch);
+
+      const formData = new FormData();
+      formData.append('player1', '1');
+      formData.append('player2', '2');
+      formData.append('player1Score', '11');
+      formData.append('player2Score', '5');
+      formData.append('bestOf', '1');
+      formData.append('notes', 'Form data match');
+
+      const request = {
+        json: async () => ({}),
+        formData: async () => formData,
+        headers: {
+          get: () => 'application/x-www-form-urlencoded',
+        },
+      } as unknown as Request;
+
+      const response = await POST(request);
+      const data = await response.json();
+
+      expect(response.status).toBe(201);
+    });
+
     it('should return error when same player is selected twice', async () => {
       const request = createRequest({
         player1: '1',
@@ -231,6 +263,32 @@ describe('Matches API', () => {
       const data = await response.json();
 
       expect(response.status).toBe(201);
+    });
+
+    it('should handle player2 winning', async () => {
+      const player1 = createPlayer({ id: '1', rating: 1000 });
+      const player2 = createPlayer({ id: '2', rating: 1000 });
+      mockPlayerFindUnique
+        .mockResolvedValueOnce(player1)
+        .mockResolvedValueOnce(player2);
+
+      const mockMatch = { id: 'match-1', winnerId: '2' };
+      mockMatchCreate.mockResolvedValue(mockMatch);
+
+      const request = createRequest({
+        player1: '1',
+        player2: '2',
+        player1Score: 5,
+        player2Score: 11,
+        bestOf: 1,
+        notes: 'Player 2 wins',
+      });
+
+      const response = await POST(request);
+      const data = await response.json();
+
+      expect(response.status).toBe(201);
+      expect(data.winnerId).toBe('2');
     });
 
     it('should return error response on failure', async () => {

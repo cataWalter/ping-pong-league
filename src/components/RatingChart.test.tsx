@@ -14,8 +14,8 @@ describe('RatingChart', () => {
       { date: '2024-01-02', rating: 1050 },
       { date: '2024-01-03', rating: 1100 },
     ];
-    render(<RatingChart data={data} />);
-    expect(screen.getByRole('img')).toBeInTheDocument(); // SVG is rendered as img
+    const { container } = render(<RatingChart data={data} />);
+    expect(container.querySelector('svg')).toBeInTheDocument();
   });
 
   it('should use custom height', () => {
@@ -81,16 +81,16 @@ describe('RatingChart', () => {
       { date: '2024-01-01', rating: 1000 },
       { date: '2024-01-02', rating: 1100 },
     ];
-    render(<RatingChart data={data} />);
+    const { container } = render(<RatingChart data={data} />);
     // Check that Y-axis labels are rendered
-    const labels = screen.getAllByRole('img');
+    const labels = container.querySelectorAll('.text-gray-400 span, .flex span');
     expect(labels.length).toBeGreaterThan(0);
   });
 
   it('should handle single data point', () => {
     const data = [{ date: '2024-01-01', rating: 1000 }];
-    render(<RatingChart data={data} />);
-    expect(screen.getByRole('img')).toBeInTheDocument();
+    const { container } = render(<RatingChart data={data} />);
+    expect(container.querySelector('svg')).toBeInTheDocument();
   });
 
   it('should render gradient definition', () => {

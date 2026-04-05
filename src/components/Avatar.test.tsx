@@ -85,16 +85,18 @@ describe('Avatar', () => {
 
   it('should have rounded-full class', () => {
     render(<Avatar name="Test" />);
-    expect(screen.getByText('T').parentElement).toHaveClass('rounded-full');
+    // The inner div (the avatar circle) has rounded-full
+    expect(screen.getByText('T')).toHaveClass('rounded-full');
   });
 
   it('should have primary colors for initials avatar', () => {
     render(<Avatar name="Test" />);
-    expect(screen.getByText('T').parentElement).toHaveClass('bg-primary-100', 'text-primary-700');
+    expect(screen.getByText('T')).toHaveClass('bg-primary-100', 'text-primary-700');
   });
 
   it('should have relative positioning', () => {
     render(<Avatar name="Test" />);
+    // The outer wrapper has relative positioning
     expect(screen.getByText('T').parentElement).toHaveClass('relative');
   });
 });
