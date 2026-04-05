@@ -1,10 +1,8 @@
-import dynamic from 'next/dynamic'
+import { lazy } from 'react'
 
-const StatsPageContent = dynamic(() => import('./StatsPageContent'), {
-  ssr: false,
-})
+const StatsPageContent = lazy(() => import('./StatsPageContent'))
 
-export const dynamicParams = true
+export const dynamic = 'force-dynamic'
 
 export default function Page() {
   return <StatsPageContent />
