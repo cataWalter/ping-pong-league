@@ -43,3 +43,6 @@ next-env.d.ts
 # Turso
 *.db
 libsql.db
+
+# Wrangler
+.wrangler

@@ -3,6 +3,8 @@ import prisma from '@/lib/db'
 import { getRatingChanges } from '@/lib/elo'
 import { checkAchievements, type PlayerStats } from '@/lib/achievements'
 
+export const runtime = 'edge'
+
 export async function GET() {
   try {
     const matches = await prisma.match.findMany({
