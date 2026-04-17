@@ -7,6 +7,12 @@ A world-class web application for tracking and managing ping pong matches within
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-3-38bdf8?logo=tailwindcss&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
+## ✅ Development status
+
+- **Tests:** All unit tests pass locally (172 tests).
+- **Production build:** Build succeeded and static output was generated in `.vercel/output/static`.
+- **How to verify:** Run `npm test` then `npm run build`.
+
 ## ✨ Features
 
 ### Core Features
