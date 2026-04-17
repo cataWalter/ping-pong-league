@@ -1,6 +1,9 @@
 name = "ping-pong-league"
-compatibility_date = "2024-04-05"
-compatibility_flags = ["nodejs_compat"]
+compatibility_date = "2025-04-05"
+compatibility_flags = [
+  "nodejs_compat",
+  "stream_direct_reads",
+  "stream_direct_writes"
+]
 
-[site]
-bucket = ".vercel/output/static"
+pages_build_output_dir = ".vercel/output/static"
